@@ -5,7 +5,7 @@ var msMenu = {
         menuWidth = $('#mode-menu').width();
         if (menuWidth == 50){
             $('#mode-menu').animate({
-              width: "260"
+              width: "360"
             }, 1000, easing);
         } else{
             $('#mode-menu').delay(delay).animate({
@@ -36,7 +36,7 @@ var msMenu = {
     $modeMenu = document.getElementById('mode-menu'),
     $modeMenuIcon = document.getElementById('mode-menu-icon'),
     // TODO: Why does removing the following semicolon break the program?
-    type = 'addition'; // Sets default type
+    type = type || 'addition'; // Sets default type
     closeWindow = function (){
       $('.modal').fadeOut(200);
     },
@@ -48,8 +48,8 @@ var msMenu = {
     },
     fader = function (element, message){
       element = element || $notification;
-      message = message || 'Default message';
-      $(element).fadeOut(200, function (){ 
+      message = message || 'Notify Err: No Message';
+      $(element).fadeOut(200, function (){
         $(element).text(message).fadeIn(200);
       });
     },
@@ -88,9 +88,15 @@ var msMenu = {
             clearAnswer();
             genQuestion();
         } else if (usrAnswer == 'shuffle') {
-            fader($notification, 'Coming soon...');
+            fader($notification, 'Shuffle is coming soon...');
             clearAnswer();
-        } else if (isNaN(parseInt(usrAnswer)) == true ){
+        } else if (usrAnswer == 'time') {
+            fader($notification, 'Time Trials are coming soon...');
+            clearAnswer();
+        } else if (usrAnswer == 'print') {
+            fader($notification, gen.sum);
+            clearAnswer();
+        } else if (isNaN(parseInt(usrAnswer)) == true){
             fader($notification, "Sorry... I can't do that :( ");
             clearAnswer();
         } else{
@@ -123,7 +129,7 @@ var msMenu = {
     },
     notify = {
      'pos': 0,
-      writeOut: function (e){ 
+      writeOut: function (e){
         var notifi = $notification;
         switch (e){
           case 'correct':
@@ -139,12 +145,15 @@ var msMenu = {
         }
                },
       correct: ["Great Job!",
-               "You Rock!",
-               "keep it up!",
-               "You're on a roll!",
-               "You're on fire!",
-               "No one can stop you now!",
-               "You must be a human calculator."
+                "You Rock!",
+                "keep it up!",
+                "You're on a roll!",
+                "You're on fire!",
+                "No one can stop you now!",
+                "You must be a human calculator.",
+                "Elementary, my dear Watson.",
+                "I feel the need—the need for maths!",
+                "You're king of the world!"
                ],
       incorrect: "That doesn't seem right.",
       empty: "Try adding an answer first."
@@ -165,7 +174,6 @@ var msMenu = {
         var val = e * f;
         return val;
       },
-      // TODO: Update op.DIV. Division is slow.
       'DIV': function (g, h){
         var val = g / h;
         return val;
@@ -210,11 +218,18 @@ var msMenu = {
           return sum;
         },
         'division': function (){
-          fader($notification, 'Coming Soon...');
+          var qVal1 = rndm(),
+              qVal2 = rndm(),
+              sum = '';
+          $val1.innerText = qVal1;
+          $val2.innerText = qVal2;
+          sum = op.DIV(qVal1,qVal2);
+          $operator.innerText = '÷';
+          this.sum = Math.floor(sum);
+          return sum;
         }
     };
 function setType(){
-  // TODO: add menu buttons
   fader($notification, 'Changed to ' + type + '... enjoy!');
   genQuestion();
   return type;

@@ -1,10 +1,14 @@
+<!--
+  TODO:
+    1) Activate Analytics
+-->
 <!DOCTYPE html>
-<!--  
-#### MathShuffle r1.2.1
+<!--
+#### MathShuffle r1.3
 -->
 <html>
   <head>
-    <script>
+    <!-- <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -13,7 +17,7 @@
       ga('create', 'UA-55067610-3', 'auto');
       ga('send', 'pageview');
 
-    </script>
+    </script> -->
 
     <title>MathShuffle</title>
     <link rel="stylesheet" type="text/css" href="vendor/uikit-2/css/uikit.min.css">
@@ -26,7 +30,9 @@
         <div id="problem-type-add" onClick="msMenu.changeType('addition')"></div>
         <div id="problem-type-sub" onClick="msMenu.changeType('subtraction')"></div>
         <div id="problem-type-mul" onClick="msMenu.changeType('multiplication')"></div>
-        <div id="problem-type-div" onClick="fader($notification, 'Coming soon...')"></div>
+        <div id="problem-type-div" onClick="msMenu.changeType('division')"></div>
+        <div id="problem-type-shuffle" class="icon-disabled" onClick="fader($notification, 'We are working on this feature ;)...')"></div>
+        <div id="problem-type-time-trial" class="icon-disabled" onClick="fader($notification, 'Time Trials are under construction...')"></div>
       </div>
       <div class="">
         <span class="score">Score: <span id="score">0</span></span>
@@ -56,22 +62,19 @@
     <span class="modal shade" onClick="closeWindow()"></span>
     <span class="modal window soft-corners">
     <div class="soft-corners-top">
-      <strong>What's new</strong> (v1.2.1)
+      <strong>What's new</strong> (v1.3)
       <span id="window-close" class="window-close uk-icon-close" onClick="closeWindow()"></span>
     </div>
-    <div>
-      - Support for <strong>Subtraction</strong> and <strong>Multiplication</strong>.<br/>
-      - <strong>ShortCode</strong>: Instantly switch modes by typing the desired mode into the input field:<br/>
-      - - <em>add</em> for Addition.<br/>
-      - - <em>sub</em> for Subtraction.<br/>
-      - - <em>mul</em> for Multiplicaton.<br/>
-    </div>
-    <div><strong>Coming Soon</strong> (v1.3)</div>
     <div>
       - Support for <strong>Division</strong>.<br/>
       - <strong>Shuffle mode: </strong> Shuffle between all or only a select number of modes.<br/>
       - - <em>shuffle all</em> to shuffle all modes.<br/>
       - - <em>shuffle add, sub</em> to shuffle between addition and subtraction only.<br/>
+      - - View changelog
+    </div>
+    <div><strong>Coming Soon</strong> (v3)</div>
+    <div>
+      - Write updates...
     </div>
       <div class="begin-btn-container">
         <input type="button" id="begin-btn" class="uk-button begin-btn" value="Got It!" onClick="closeWindow()" />

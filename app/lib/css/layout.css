@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Quicksand:300,400);
-/* View Properties */
-/* Colors */
+/********* View Properties *********/
+/********* Colors *********/
+/********* Sprite Sheet *********/
 /* Reset */
 * {
   margin: 0;
@@ -11,7 +12,7 @@ html, body {
   font-family: "Quicksand", sans-serif;
   color: #ffffff; }
 
-/* CSS Objects */
+/********* Soft Corners *********/
 .soft-corners {
   border-radius: 10px;
   -o-border-radius: 10px;
@@ -32,7 +33,7 @@ html, body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px; }
 
-/* Layout */
+/********* Layout *********/
 .menu {
   width: 100%;
   height: 50px;
@@ -82,16 +83,25 @@ html, body {
   -webkit-transition: all .3s linear; }
 
 #problem-type-add {
-  background: url(https://copy.com/h6S6hTzzH8LghRa2) center no-repeat; }
+  background: url("https://copy.com/kpNelQt6rSVLosSJ") 0 0; }
 
 #problem-type-sub {
-  background: url(https://copy.com/Vmfvpq7E1UXvfXXH) center no-repeat; }
+  background: url("https://copy.com/kpNelQt6rSVLosSJ") -50px 0; }
 
 #problem-type-mul {
-  background: url(https://copy.com/8X1BJ4lWL489tDGe) center no-repeat; }
+  background: url("https://copy.com/kpNelQt6rSVLosSJ") -100px 0; }
 
 #problem-type-div {
-  background: url(https://copy.com/OIcJZZCo3cVcFpFB) center no-repeat;
+  background: url("https://copy.com/kpNelQt6rSVLosSJ") -150px 0; }
+
+#problem-type-shuffle {
+  background: url("https://copy.com/kpNelQt6rSVLosSJ") -200px 0; }
+
+#problem-type-time-trial {
+  background: url("https://copy.com/kpNelQt6rSVLosSJ") -250px 0; }
+
+/********* Button states *********/
+.icon-disabled {
   opacity: .5; }
 
 .view {
@@ -143,11 +153,11 @@ html, body {
   background: #ffffff;
   color: #343A45; }
 
-/* Buttons */
+/********* Buttons *********/
 .submit-btn {
   margin: 10px 0; }
 
-/* Update Window */
+/********* Update Window *********/
 strong, em {
   margin-right: 2px; }
 
@@ -156,10 +166,10 @@ strong {
 
 .window {
   width: 400px;
-  height: 430px;
+  height: 350px;
   position: absolute;
   margin-left: -200px;
-  margin-top: -200px;
+  margin-top: -185px;
   top: 50%;
   left: 50%;
   color: #ffffff;
