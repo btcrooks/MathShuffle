@@ -1,4 +1,9 @@
-var msMenu = {
+var ms = {
+      config : {
+        'version': '1.3'
+      }
+    },
+    msMenu = {
       'toggleMenu': function(delay){
         delay = delay || 0;
         var easing = 'easeInOutCirc';
@@ -96,6 +101,8 @@ var msMenu = {
         } else if (usrAnswer == 'print') {
             fader($notification, gen.sum);
             clearAnswer();
+        } else if (usrAnswer == 'version') { 
+            fader($notification, ms.config.version); 
         } else if (isNaN(parseInt(usrAnswer)) == true){
             fader($notification, "Sorry... I can't do that :( ");
             clearAnswer();
@@ -224,7 +231,7 @@ var msMenu = {
           $val1.innerText = qVal1;
           $val2.innerText = qVal2;
           sum = op.DIV(qVal1,qVal2);
-          $operator.innerText = '÷';
+          $operator.innerText = '/';
           this.sum = Math.floor(sum);
           return sum;
         }
