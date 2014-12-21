@@ -103,6 +103,7 @@ var ms = {
             clearAnswer();
         } else if (usrAnswer == 'version') { 
             fader($notification, ms.config.version); 
+            clearAnswer();
         } else if (isNaN(parseInt(usrAnswer)) == true){
             fader($notification, "Sorry... I can't do that :( ");
             clearAnswer();
